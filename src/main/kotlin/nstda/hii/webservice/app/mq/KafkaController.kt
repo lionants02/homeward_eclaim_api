@@ -1,3 +1,4 @@
+
 /*
  * MIT License
  *
@@ -11,12 +12,11 @@
  */
 
 package nstda.hii.webservice.app.mq
-
-import java.util.Properties
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.Producer
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.clients.producer.RecordMetadata
+import java.util.Properties
 import java.util.concurrent.Future
 
 /**
@@ -45,16 +45,13 @@ class KafkaController<K, V>(private val config: Properties) : ProducerMessageQue
                 output = producer!!.send(record)
                 retry = false
             } catch (ex: Exception) {
-                if (count >= 3)
+                if (count >= 3) {
                     throw ex
+                }
                 close()
                 producer = KafkaProducer<K, V>(config)
             }
         }
         return output!!
-    }
-
-    companion object {
-
     }
 }
