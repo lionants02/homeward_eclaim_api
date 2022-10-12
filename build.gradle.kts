@@ -55,6 +55,9 @@ dependencies {
     implementation("com.github.kittinunf.fuel:fuel:$fuelVersion")
     implementation("com.github.kittinunf.fuel:fuel-gson:$fuelVersion")
 
+    // Kafka
+    implementation("org.apache.kafka:kafka-clients:3.3.1")
+
     implementation("com.auth0:java-jwt:4.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("commons-codec:commons-codec:1.15")
