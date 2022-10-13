@@ -36,7 +36,7 @@ class InitialDatabaseConnection(connectionString: String, username: String, pass
         // ตั้งการการเชื่อมต่อ library expose
         Database.connect(dataSource)
     }
-    fun close(){
+    fun close() {
         dataSource.close()
     }
 }
