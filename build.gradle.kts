@@ -54,6 +54,14 @@ dependencies {
     // Kafka
     implementation("org.apache.kafka:kafka-clients:3.3.1")
 
+    val exposedVersion = "0.40.1"
+    implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
+
+    implementation("org.postgresql:postgresql:42.5.0")
+    implementation("com.zaxxer:HikariCP:5.0.1")
+
     implementation("com.auth0:java-jwt:4.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("commons-codec:commons-codec:1.15")
