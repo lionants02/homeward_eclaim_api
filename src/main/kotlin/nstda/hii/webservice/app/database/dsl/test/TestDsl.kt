@@ -1,4 +1,5 @@
 /*
+ *
  * MIT License
  *
  * Copyright (c) 2022 NSTDA
@@ -10,18 +11,15 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package nstda.hii.webservice.webconfig
+package nstda.hii.webservice.app.database.dsl.test
 
-import org.glassfish.jersey.server.ResourceConfig
-import org.glassfish.jersey.server.filter.CsrfProtectionFilter
-import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature
+import org.jetbrains.exposed.dao.id.LongIdTable
+import org.jetbrains.exposed.sql.ResultRow
 
-internal class ServletResourceConfig : ResourceConfig() {
+object TestDsl : LongIdTable("test_dsl") {
+    val name = varchar("name", 50)
 
-    init {
-        packages("nstda.hii.webservice.app")
-
-        register(RolesAllowedDynamicFeature::class.java)
-        register(CsrfProtectionFilter::class.java)
+    fun getResult(it: ResultRow): String {
+        return it[name]
     }
 }
